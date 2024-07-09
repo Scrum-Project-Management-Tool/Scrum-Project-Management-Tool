@@ -1,0 +1,11 @@
+{
+  "name": "scrum-project-management-tool",
+  "version": "1.0.0",
+  "description": "Scrum Project Management Tool for Agile Teams inspired by Taiga.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pranav Barthwal",
+  "license": "ISC"
+}
