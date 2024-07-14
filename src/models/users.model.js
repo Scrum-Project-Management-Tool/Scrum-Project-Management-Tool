@@ -56,6 +56,9 @@ const userSchema = new mongoose.Schema(
         ref: "Issue",
       },
     ],
+    refreshToken: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
