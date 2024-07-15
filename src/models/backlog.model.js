@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Schema} from "mongoose";
 
 const backlogSchema = new mongoose.Schema(
     {

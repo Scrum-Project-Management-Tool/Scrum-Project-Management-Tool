@@ -1,7 +1,7 @@
-import {asyncHandler} from '../utils/asyncHandler';
+import {asyncHandler} from '../utils/asyncHandler.js';
 import{ApiError} from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js"
-
+import { User } from "../models/user.model.js"
 
 
 const registerUser = asyncHandler(async (req, res) => {
@@ -22,7 +22,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
     if (
         // check if any of the fields are empty
-        [fullName, email, username, password].some((field) => field?.trim() === "")
+        [username, email, password, fullName].some((field) => field?.trim() === "")
     ){
         throw new ApiError(400, "fields cannot be empty")
     }
