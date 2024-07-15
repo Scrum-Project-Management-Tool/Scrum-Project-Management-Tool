@@ -22,40 +22,15 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, "Password is required"],
     },
-    projectId: [
+    projectsId: [
       {
         type: Schema.Types.ObjectId,
         ref: "Project",
       },
     ],
-    backlogId: {
-      type: Schema.Types.ObjectId,
-      ref: "Backlog",
+    refreshToken: {
+      type: String,
     },
-    userStoryId: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "UserStory",
-      },
-    ],
-    taskId: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Task",
-      },
-    ],
-    sprintId: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Sprint",
-      },
-    ],
-    issueId: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Issue",
-      },
-    ],
   },
   { timestamps: true }
 );

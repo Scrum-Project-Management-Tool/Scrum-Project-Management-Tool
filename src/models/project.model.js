@@ -2,6 +2,13 @@ import mongoose from "mongoose";
 
 const projectSchema = new mongoose.Schema(
     {
+        assignees: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "User",
+                required: true,
+            },
+        ],
         title: {
             type: String,
             required: true,
@@ -17,28 +24,21 @@ const projectSchema = new mongoose.Schema(
             enum : ['public','private'],
             required: true,
         },
-        assignee: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: "User",
-                required: true,
-            },
-        ],
         backlogId: {
             type: Schema.Types.ObjectId,
             ref: "Backlog",
             required: true,
         },
-        userStoriesId: [
+        sprintsId: [
             {
                 type: Schema.Types.ObjectId,
-                ref: "UserStory",
-            },
+                ref: "Sprint",
+            }
         ],
-        taskId: [
+        issuesId: [
             {
                 type: Schema.Types.ObjectId,
-                ref: "Task",
+                ref: "Issue",
             },
         ],
     }, 

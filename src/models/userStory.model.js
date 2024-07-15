@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const userStorySchema = new mongoose.Schema(
     {
-        assignee:[
+        assignees:[
             {
                 type: Schema.Types.ObjectId,
                 ref: "User",
@@ -36,7 +36,7 @@ const userStorySchema = new mongoose.Schema(
             enum : ['new', 'ready', 'in-progress', 'ready for test', 'done', 'archived'],
             required: true,
         },
-        taskId:[
+        tasksId:[
             {
                 type: Schema.Types.ObjectId,
                 ref: "Task",
