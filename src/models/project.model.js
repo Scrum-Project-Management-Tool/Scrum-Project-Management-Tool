@@ -6,28 +6,23 @@ const projectSchema = new mongoose.Schema(
             {
                 type: Schema.Types.ObjectId,
                 ref: "User",
-                required: true,
+                required: false,
             },
         ],
         title: {
             type: String,
             required: true,
-            trim: true,
+            //trim: true,
         },
         description: {
             type: String,
             required: true,
-            trim: true,
-        },
-        visibility:{
-            type: String,
-            enum : ['public','private'],
-            required: true,
+            //trim: true,
         },
         backlogId: {
             type: Schema.Types.ObjectId,
             ref: "Backlog",
-            required: true,
+            required: false,
         },
         sprintsId: [
             {
