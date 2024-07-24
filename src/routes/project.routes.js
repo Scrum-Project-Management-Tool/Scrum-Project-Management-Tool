@@ -24,12 +24,12 @@ projectRouter.route('/assign').post(
 )
 
 // get all projects
-projectRouter.route('/allAssigned').get((req, res) => {
+projectRouter.route('/allAssigned').get(
 
     verifyJWT,
 
     getAllAssignedProjects
-})
+)
 
 
 export default projectRouter;
