@@ -6,7 +6,6 @@ const userStorySchema = new mongoose.Schema(
             {
                 type: Schema.Types.ObjectId,
                 ref: "User",
-                required: true,
             },
         ],
         subject:{
@@ -14,18 +13,12 @@ const userStorySchema = new mongoose.Schema(
             required: true,
             trim: true,
         },
-        tag:[
-            {
-                type: String,
-                trim: true,
-            },
-        ],
         description:{
             type: String,
             required: true,
             trim: true,
         },
-        attachment:[
+        attachments:[
             {
                 type: String,     // URL
                 trim: true,
