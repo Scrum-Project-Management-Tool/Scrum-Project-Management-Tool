@@ -19,11 +19,12 @@ const projectSchema = new mongoose.Schema(
             required: true,
             //trim: true,
         },
-        backlogId: {
-            type: Schema.Types.ObjectId,
-            ref: "Backlog",
-            required: false,
-        },
+        userStoriesId: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: "UserStory",
+            },
+        ],
         sprintsId: [
             {
                 type: Schema.Types.ObjectId,
