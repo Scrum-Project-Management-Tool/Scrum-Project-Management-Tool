@@ -59,8 +59,8 @@ const getProjectUserStories = asyncHandler(async (req, res, next) => {
 
     try {
         
-        // Get the project id from the request body
-        const { projectId } = req.body;
+        //get project id from query params
+        const { projectId } = req.params;
 
         // Check if project exists
         const project = await Project.findById(projectId);

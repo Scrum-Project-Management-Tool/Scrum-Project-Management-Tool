@@ -22,7 +22,7 @@ userStoryRouter.route('/new').post(
 
 
 // get all userStories for a project
-userStoryRouter.route('/getalluserstories').get(
+userStoryRouter.route('/getalluserstories/:projectId').get(
 
     verifyJWT,
 
