@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createNewUserStory } from '../controllers/userStory.controller.js';
+import { createNewUserStory, getProjectUserStories } from '../controllers/userStory.controller.js';
 import { verifyJWT } from '../middleware/auth.middleware.js';
 import { upload } from '../middleware/multer.middleware.js';
 
@@ -18,6 +18,15 @@ userStoryRouter.route('/new').post(
     ]),
 
     createNewUserStory
+)
+
+
+// get all userStories for a project
+userStoryRouter.route('/getalluserstories').get(
+
+    verifyJWT,
+
+    getProjectUserStories
 )
 
 

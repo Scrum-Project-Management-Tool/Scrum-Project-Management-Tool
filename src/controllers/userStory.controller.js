@@ -56,4 +56,45 @@ const createNewUserStory = asyncHandler(async (req, res, next) => {
 
 });
 
-export { createNewUserStory };
+const getProjectUserStories = asyncHandler(async (req, res, next) => {
+
+    try {
+        
+        // Get the project id from the request body
+        const { projectId } = req.body;
+
+        // Check if project exists
+        const project = await Project.findById(projectId);
+
+        // If project does not exist, throw an error
+        if (!project) {
+          throw new ApiError(404, "Project not found");
+        }
+
+        // Get all user stories for the project
+        const userStories = await UserStory.find(
+            { 
+                _id: { $in: project.userStoriesId } 
+            }
+        );
+
+        // check if user stories exist for the project
+        if (!userStories || userStories.length === 0) {
+          throw new ApiError(404, "No user stories found for this project");
+        }
+
+        // Return response with the found user stories
+        return res
+          .status(200)
+          .json(new ApiResponse(200, userStories, "All user stories for this project fetched successfully"));
+
+      } catch (error) {
+        throw new ApiError(
+          500,
+          "Error fetching user stories for this projects: " + error.message
+        );
+      }
+
+});
+
+export { createNewUserStory, getProjectUserStories };
