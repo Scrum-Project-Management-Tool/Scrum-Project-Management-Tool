@@ -2,7 +2,6 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { Project } from "../models/project.model.js";
-import { User } from "../models/user.model.js";
 import { UserStory } from "../models/userStory.model.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
 
