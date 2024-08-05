@@ -50,7 +50,7 @@ const createNewProject = asyncHandler(async (req, res) => {
 });
 
 const assignProjectToUsers = asyncHandler(async (req, res) => {
-  const { projectId, userIds } = req.body;
+  const { projectId, userEmails } = req.body;
 
   try {
     // Check if project exists
@@ -63,7 +63,12 @@ const assignProjectToUsers = asyncHandler(async (req, res) => {
     const currentAssignees = project.assignees.map((id) => id.toString());
 
     // Filter out user IDs that are already assigned to the project
-    const newAssignees = userIds.filter((id) => !currentAssignees.includes(id));
+
+    const assigneeEmails = await User.find({ email: { $in: userEmails } });
+
+    const assigneeIds = assigneeEmails.map(user => user._id.toString()); 
+
+    const newAssignees = assigneeIds.filter((id) => !currentAssignees.includes(id));
 
     // Only proceed if there are new assignees
     if (newAssignees.length > 0) {
